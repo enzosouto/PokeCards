@@ -11,6 +11,7 @@ const error = ref('')
 const searched = ref(false)
 
 const allCards = ref<CardWithSalesCount[]>([])
+const loadingCatalog = ref(true)
 
 async function search() {
   if (query.value.trim().length < 2) return
@@ -31,6 +32,8 @@ onMounted(async () => {
     allCards.value = await api.getAllCards()
   } catch {
     // silent — catalog section is non-essential
+  } finally {
+    loadingCatalog.value = false
   }
 })
 </script>
@@ -79,6 +82,11 @@ onMounted(async () => {
 
     <div v-if="!loading && results.length" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
       <CardTile v-for="card in results" :key="card.id" :card="card" />
+    </div>
+
+    <div v-else-if="!searched && loadingCatalog" class="flex flex-col items-center gap-3 py-12 text-zinc-400">
+      <div class="h-8 w-8 rounded-full border-2 border-border border-t-accent animate-spin" />
+      <p class="text-sm">Carregando cartas...</p>
     </div>
 
     <template v-else-if="!searched && allCards.length">

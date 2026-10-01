@@ -1,0 +1,12 @@
+export type TypeName =
+  | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice' | 'fighting'
+  | 'poison' | 'ground' | 'flying' | 'psychic' | 'bug' | 'rock' | 'ghost'
+  | 'dragon' | 'dark' | 'steel' | 'fairy'
+
+export interface PokedexEntry {
+  id: number
+  name: string
+  spriteUrl: string
+  generation: number
+  types: TypeName[]
+}

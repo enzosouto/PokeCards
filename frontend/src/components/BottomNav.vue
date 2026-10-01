@@ -16,6 +16,11 @@ const tabs = [
     icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
+    to: '/pokedex',
+    label: 'Pokédex',
+    icon: 'M4 12a8 8 0 0116 0M4 12a8 8 0 008 8m-8-8h16m-8 8a8 8 0 008-8m-8-2a2 2 0 100 4 2 2 0 000-4z',
+  },
+  {
     to: '/sobre',
     label: 'Sobre',
     icon: 'M12 16v-4m0-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
