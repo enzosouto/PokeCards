@@ -1,0 +1,26 @@
+# raw source assets (already copied into frontend/src/assets where needed)
+/Logo.png
+/Card.jpg
+/Video *.mp4
+
+# reference repo cloned for CSS research, not our code
+/pokemon-cards-css/
+
+# scratch debug screenshots
+/pw-debug/
+
+# env files
+.env
+.env.local
+*.env
+
+# dependencies / build output
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+
+# editor/OS
+.DS_Store
+.vscode/
