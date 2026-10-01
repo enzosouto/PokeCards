@@ -32,19 +32,18 @@ const bg = computed(() => TYPE_COLOR[props.type])
 <style scoped>
 .type-badge {
   display: inline-block;
-  font-family: var(--font-pixel);
+  font-weight: 600;
   color: #15151a;
-  border: 2px solid #000;
-  padding: 4px 8px;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 3px 8px;
 }
 
 .type-badge--sm {
-  font-size: 0.45rem;
-  padding: 3px 6px;
+  font-size: 0.6rem;
+  padding: 2px 7px;
 }
 
 .type-badge--md {
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 </style>

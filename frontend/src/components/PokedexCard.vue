@@ -9,7 +9,7 @@ defineProps<{ pokemon: PokedexEntry }>()
   <RouterLink :to="`/pokedex/${pokemon.id}`" class="poke-card">
     <span class="poke-number">#{{ String(pokemon.id).padStart(3, '0') }}</span>
     <img class="poke-sprite" :src="pokemon.spriteUrl" :alt="pokemon.name" loading="lazy" width="72" height="72" />
-    <span class="poke-name">{{ pokemon.name.toUpperCase() }}</span>
+    <span class="poke-name">{{ pokemon.name }}</span>
     <div class="poke-types">
       <TypeBadge v-for="t in pokemon.types" :key="t" :type="t" size="sm" />
     </div>
@@ -24,7 +24,8 @@ defineProps<{ pokemon: PokedexEntry }>()
   align-items: center;
   gap: 6px;
   background: var(--color-graphite);
-  border: 4px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
   padding: 12px 8px;
   text-decoration: none;
   color: #f4f4f5;
@@ -36,8 +37,7 @@ defineProps<{ pokemon: PokedexEntry }>()
 }
 
 .poke-number {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: #9ca3af;
   align-self: flex-start;
 }
@@ -50,9 +50,10 @@ defineProps<{ pokemon: PokedexEntry }>()
 }
 
 .poke-name {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .poke-types {

@@ -36,12 +36,12 @@ onMounted(async () => {
 
 <template>
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 pb-24 md:pb-16">
-    <RouterLink to="/pokedex" class="back-btn">&lt; VOLTAR</RouterLink>
+    <RouterLink to="/pokedex" class="back-btn">&larr; Voltar</RouterLink>
 
     <div v-if="pokemon" class="poke-header">
       <span class="poke-header-number">#{{ String(pokemon.id).padStart(3, '0') }}</span>
       <img :src="pokemon.spriteUrl" :alt="pokemon.name" class="poke-header-sprite" width="120" height="120" />
-      <h1 class="poke-header-name">{{ pokemon.name.toUpperCase() }}</h1>
+      <h1 class="poke-header-name">{{ pokemon.name }}</h1>
       <div class="poke-header-types">
         <TypeBadge v-for="t in pokemon.types" :key="t" :type="t" />
       </div>
@@ -69,18 +69,19 @@ onMounted(async () => {
 <style scoped>
 .back-btn {
   display: inline-block;
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   color: #f4f4f5;
-  border: 3px solid var(--color-accent);
-  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 14px;
   margin-bottom: 20px;
   text-decoration: none;
-  box-shadow: 3px 3px 0 0 #000;
+  transition: border-color 0.15s;
 }
 
 .back-btn:hover {
-  background: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .poke-header {
@@ -89,14 +90,13 @@ onMounted(async () => {
   align-items: center;
   gap: 8px;
   background: var(--color-graphite);
-  border: 4px solid var(--color-accent);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 6px 6px 0 0 #000;
 }
 
 .poke-header-number {
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: #9ca3af;
 }
 
@@ -107,8 +107,9 @@ onMounted(async () => {
 }
 
 .poke-header-name {
-  font-family: var(--font-pixel);
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .poke-header-types {

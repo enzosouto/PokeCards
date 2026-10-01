@@ -19,7 +19,7 @@ const filtered = computed(() => {
 <template>
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 pb-24 md:pb-16">
     <div class="text-center mb-6">
-      <h1 class="font-pixel text-sm sm:text-base text-accent mb-2">POKÉDEX</h1>
+      <h1 class="text-2xl sm:text-3xl font-bold text-accent mb-2">Pokédex</h1>
       <p class="text-xs sm:text-sm text-zinc-500">{{ filtered.length }} pokémon</p>
     </div>
 

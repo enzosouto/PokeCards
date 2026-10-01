@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Press Start 2P";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("./assets/fonts/press-start-2p-latin.woff2") format("woff2");
-}
-
 @theme {
   --color-ink: #0a0a0b;
   --color-graphite: #141416;
@@ -16,7 +8,6 @@
   --color-accent: #dc2626;
   --color-accent-soft: #7f1d1d;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-pixel: "Press Start 2P", monospace;
 }
 
 body {
