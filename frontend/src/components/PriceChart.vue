@@ -29,7 +29,7 @@ function render() {
       backgroundColor: '#1e1e22',
       borderColor: '#2a2a2f',
       textStyle: { color: '#f4f4f5' },
-      valueFormatter: (v) => `$${v}`,
+      valueFormatter: (v: number) => `$${v}`,
     },
     series: [
       {
