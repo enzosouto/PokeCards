@@ -5,6 +5,7 @@ import type { Card, CardStats, Sale } from '../api/types'
 import StatTile from '../components/StatTile.vue'
 import PriceChart from '../components/PriceChart.vue'
 import HoloCard from '../components/HoloCard.vue'
+import { money } from '../composables/useCurrency'
 
 const props = defineProps<{ id: string }>()
 
@@ -13,11 +14,6 @@ const sales = ref<Sale[]>([])
 const stats30 = ref<CardStats | null>(null)
 const loading = ref(true)
 const error = ref('')
-
-function money(v: number | null, currency = 'USD') {
-  if (v === null) return '—'
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(v)
-}
 
 function date(v: string | null) {
   if (!v) return '—'

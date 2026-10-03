@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import logo from './assets/logo.png'
 import BottomNav from './components/BottomNav.vue'
 import IntroScrub from './components/IntroScrub.vue'
+import CurrencyToggle from './components/CurrencyToggle.vue'
 
 const showIntro = ref(!localStorage.getItem('pokemarket_intro_seen'))
 const route = useRoute()
@@ -29,6 +30,7 @@ const isLogin = computed(() => route.path === '/login')
           <RouterLink to="/pokedex" class="hover:text-white transition">Pokédex</RouterLink>
           <RouterLink to="/sobre" class="hover:text-white transition">Sobre</RouterLink>
         </nav>
+        <CurrencyToggle />
       </div>
     </header>
     <RouterView />

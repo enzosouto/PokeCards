@@ -3,13 +3,10 @@ import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { api } from '../api/client'
 import type { RecentSale } from '../api/types'
+import { money } from '../composables/useCurrency'
 
 const sales = ref<RecentSale[]>([])
 const loading = ref(true)
-
-function money(v: number, currency: string) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(v)
-}
 
 function date(v: string) {
   return new Intl.DateTimeFormat('pt-BR').format(new Date(v))

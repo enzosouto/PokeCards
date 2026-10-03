@@ -54,7 +54,7 @@ onMounted(async () => {
       />
       <button
         type="submit"
-        class="rounded-lg bg-accent px-5 py-3 font-semibold hover:bg-red-500 active:bg-red-600 transition disabled:opacity-50"
+        class="rounded-lg bg-accent px-5 py-3 font-semibold hover:bg-purple-500 active:bg-purple-600 transition disabled:opacity-50"
         :disabled="loading"
       >
         {{ loading ? '...' : 'Buscar' }}

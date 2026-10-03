@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import * as echarts from 'echarts'
 import type { Sale } from '../api/types'
+import { currency, convert } from '../composables/useCurrency'
 
 const props = defineProps<{ sales: Sale[] }>()
 const el = ref<HTMLDivElement | null>(null)
@@ -9,9 +10,10 @@ let chart: echarts.ECharts | null = null
 
 function render() {
   if (!el.value) return
+  const symbol = currency.value === 'BRL' ? 'R$' : '$'
   const points = [...props.sales]
     .sort((a, b) => new Date(a.sold_at).getTime() - new Date(b.sold_at).getTime())
-    .map((s) => [s.sold_at, s.price])
+    .map((s) => [s.sold_at, convert(s.price, s.currency)])
 
   const isMobile = window.innerWidth < 640
   if (!chart) chart = echarts.init(el.value, null, { renderer: 'svg' })
@@ -21,7 +23,7 @@ function render() {
     xAxis: { type: 'time', axisLabel: { color: '#a1a1aa' }, axisLine: { lineStyle: { color: '#2a2a2f' } } },
     yAxis: {
       type: 'value',
-      axisLabel: { color: '#a1a1aa', formatter: '${value}' },
+      axisLabel: { color: '#a1a1aa', formatter: `${symbol}{value}` },
       splitLine: { lineStyle: { color: '#2a2a2f' } },
     },
     tooltip: {
@@ -29,7 +31,7 @@ function render() {
       backgroundColor: '#1e1e22',
       borderColor: '#2a2a2f',
       textStyle: { color: '#f4f4f5' },
-      valueFormatter: (v: number) => `$${v}`,
+      valueFormatter: (v: number) => `${symbol}${Number(v).toFixed(2)}`,
     },
     series: [
       {
@@ -37,8 +39,8 @@ function render() {
         data: points,
         smooth: true,
         symbolSize: 6,
-        lineStyle: { color: '#dc2626', width: 2 },
-        itemStyle: { color: '#dc2626' },
+        lineStyle: { color: '#9333ea', width: 2 },
+        itemStyle: { color: '#9333ea' },
         areaStyle: { color: 'rgba(220,38,38,0.1)' },
       },
     ],
@@ -54,6 +56,7 @@ onMounted(() => {
   window.addEventListener('resize', handleResize)
 })
 watch(() => props.sales, render, { deep: true })
+watch(currency, render)
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
   chart?.dispose()
