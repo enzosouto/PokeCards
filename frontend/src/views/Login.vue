@@ -21,7 +21,7 @@ function submit() {
 <template>
   <div class="min-h-screen bg-ink flex items-center justify-center px-4">
     <form @submit.prevent="submit" class="w-full max-w-sm bg-graphite border border-border rounded-xl p-6 space-y-4">
-      <img :src="logo" alt="PokéMarket" class="h-12 w-auto mx-auto" />
+      <img :src="logo" alt="CardTracker" class="h-12 w-auto mx-auto" />
       <div>
         <label class="block text-sm text-zinc-400 mb-1">Usuário</label>
         <input v-model="user" type="text" autocomplete="username"

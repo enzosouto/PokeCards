@@ -142,7 +142,7 @@ onBeforeUnmount(() => {
 
       <Transition name="fade">
         <div v-if="showLogo" class="absolute inset-0 flex items-center justify-center bg-black">
-          <img :src="logo" alt="PokéMarket" class="w-56 sm:w-72" />
+          <img :src="logo" alt="CardTracker" class="w-56 sm:w-72" />
         </div>
       </Transition>
     </div>
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
 
     <Transition name="fade">
       <div v-if="showLogo" class="absolute inset-0 flex items-center justify-center bg-black">
-        <img :src="logo" alt="PokéMarket" class="w-56" />
+        <img :src="logo" alt="CardTracker" class="w-56" />
       </div>
     </Transition>
   </div>

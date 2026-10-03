@@ -3,7 +3,7 @@
     <h1 class="text-2xl sm:text-3xl font-bold mb-6">Sobre</h1>
     <div class="space-y-4 text-zinc-300 leading-relaxed">
       <p>
-        <strong class="text-white">PokéMarket</strong> é uma plataforma de monitoramento de
+        <strong class="text-white">CardTracker</strong> é uma plataforma de monitoramento de
         preços e vendas reais de cartas Pokémon TCG, focada em sold listings do eBay.
       </p>
       <p>

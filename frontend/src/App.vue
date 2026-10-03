@@ -18,7 +18,7 @@ const isLogin = computed(() => route.path === '/login')
     <header v-if="!isLogin" class="sticky top-0 z-30 border-b border-border bg-ink/90 backdrop-blur">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-6">
         <RouterLink to="/">
-          <img :src="logo" alt="PokéMarket" class="h-10 sm:h-14 w-auto" />
+          <img :src="logo" alt="CardTracker" class="h-14 sm:h-20 w-auto" />
         </RouterLink>
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
           <RouterLink to="/mais-vendidas" class="hover:text-white transition"
