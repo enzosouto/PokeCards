@@ -2,7 +2,7 @@ name: Update Sales
 
 on:
   schedule:
-    - cron: "0 6 * * *" # daily, 06:00 UTC
+    - cron: "0 */6 * * *" # every 6h, matches CACHE_TTL_HOURS in tracked_card_repo.py
   workflow_dispatch:
 
 jobs:
